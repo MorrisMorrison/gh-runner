@@ -1,4 +1,3 @@
-````markdown
 # GitHub Actions Self-Hosted Runner Setup
 
 This repository provides scripts to install and maintain a **self-hosted GitHub Actions runner** on a Linux server (e.g. Ubuntu).  
@@ -47,7 +46,6 @@ The watchdog logs any restarts to:
 /var/log/runner-watchdog.log
 ```
 
----
 
 ## 🔧 Requirements
 
@@ -55,8 +53,6 @@ The watchdog logs any restarts to:
 * `curl`, `tar`, `jq`, and `systemd` available
 * User account with `sudo` privileges
 * A GitHub repository or organization with Actions enabled
-
----
 
 ## 🛠️ Service Management
 
@@ -82,7 +78,7 @@ journalctl -u runner-watchdog.service
 
 ---
 
-## 🚀 Workflow
+## Workflow
 
 1. Run `setup-runner.sh` with your GitHub token
 2. Run `setup-watchdog.sh` to add the watchdog
@@ -93,24 +89,9 @@ journalctl -u runner-watchdog.service
 runs-on: self-hosted
 ```
 
----
-
-## ⚠️ Notes
+## Notes
 
 * Tokens expire quickly (usually in 1 hour). Always generate a fresh token before running `setup-runner.sh`.
 * If you want **organization-level runners**, leave `GITHUB_REPO` empty inside `setup-runner.sh`.
 * Adjust the watchdog timer interval in `setup-watchdog.sh` if you need faster/later checks.
-
 ---
-
-## 📝 License
-
-MIT
-
-```
-
----
-
-Would you like me to also add an **example GitHub Actions workflow file** (`.github/workflows/test-runner.yml`) to the repo so you can immediately test the runner after setup?
-```
-
